@@ -1,0 +1,52 @@
+<header>
+
+<div [ngClass]="isDark? 'dark-theme' : 'light-theme'">
+<mat-toolbar>
+  <mat-toolbar-row class="justify-content-between">
+    <button mat-icon-button (click)="toggleSidebar()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+<div class="col-md-9 col-sm-9 col-9 text-end">
+  <div class="menu">
+    <ul class="uls">
+    <li><a routerLink="/home">Home</a></li>&nbsp;
+    <li><a routerLink="/about">About</a></li>&nbsp;
+    <li><a routerLink="/contact">Contact</a></li>&nbsp;
+    <li><a routerLink="/time">Time</a></li>&nbsp;
+    <li><a routerLink="/page">page</a></li>&nbsp;
+  </ul>
+  </div>
+
+</div>
+     <!-- <mat-slide-toggle class="slide-toggle" (click)="switchTheme()">Switch Theme !</mat-slide-toggle> -->
+
+
+    <div class="row mr-2 ml-auto">
+      <ul class="row m-0 align-items-center">
+        <li>
+          <button
+            mat-button
+            [matMenuTriggerFor]="menu"
+            class="user mt-2 d-flex align-items-center"
+          >
+            <img src="./assets/user.jpg" alt="" class="user-image mr-1 p-2" />
+
+            User Name
+            <mat-icon class="user-image-icon ml-1"
+              >keyboard_arrow_down</mat-icon
+            >
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <mat-icon>exit_to_app</mat-icon>
+              Logout
+            </button>
+          </mat-menu>
+        </li>
+      </ul>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+</div>
+</header>

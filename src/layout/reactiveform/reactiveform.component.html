@@ -1,0 +1,81 @@
+<p>reactiveform works!</p>
+
+
+<app-contact [myvalue]="value"></app-contact>
+
+
+
+    <mat-card-title  class="bg-black text-white m-5 p-2" > Create New User</mat-card-title>
+    <mat-card-content>
+        <div class="background">
+            <mat-card>
+            <form [formGroup]="addUserForm" (submit)="createUser()">
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>username</mat-label>
+                        <input matInput placeholder="username" formControlName="username">
+                        <mat-icon matSuffix></mat-icon>
+                
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Email" formControlName="email">
+                        <mat-icon matSuffix></mat-icon>
+                    
+                        <mat-error
+                            *ngIf="addUserForm.controls['email'].errors && addUserForm.controls['email'].hasError('required')">
+                            Email is required
+                        </mat-error>
+                        <mat-error
+                            *ngIf="addUserForm.controls['email'].errors && addUserForm.controls['email'].hasError('email')">
+                            Email address is invalid
+                        </mat-error>
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    
+
+                   
+                    <mat-form-field appearance="outline">
+                        
+                        <mat-label>Phone number</mat-label>
+                        <input matInput placeholder="Phone" formControlName="phone">
+                        <mat-icon matSuffix></mat-icon>
+                        <mat-error
+                            *ngIf="addUserForm.controls['phone'].errors && addUserForm.controls['phone'].hasError('required')">
+                            phone number is required
+                        </mat-error>
+                        <mat-error
+                            *ngIf="addUserForm.controls['phone'].errors && addUserForm.controls['phone'].hasError('maxlength')">
+                            phone number is should be 10 digits required
+                        </mat-error>
+                    </mat-form-field>
+                </p>
+
+
+
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Age:</mat-label>
+                        <input matInput placeholder="age" formControlName="age">
+                        <mat-icon matSuffix></mat-icon>
+                        <small *ngIf="addUserForm.get('age')?.errors  && addUserForm.get('age')?.touched" style="color: rgb(255, 12, 12);">Age range Should be between 18 to 45 </small>
+                    </mat-form-field>
+                </p>
+          
+
+
+           <p> <button class="bg-primary" mat-raised-button color="primary" [disabled]="!addUserForm.valid">create User</button></p>
+             </form>
+        </mat-card>
+      
+        </div>
+    </mat-card-content>
+
+  
+
+    

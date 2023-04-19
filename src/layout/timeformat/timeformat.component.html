@@ -1,0 +1,48 @@
+<app-time [myValue]="value"></app-time>
+
+<p>timeformat works!</p>
+<mat-card>
+  <form [formGroup]="setTime">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Start Time</mat-label>
+        <input matInput type="text" class="form-control ml-12 ng-untouched ng-pristine ng-valid" placeholder="00:00"
+          formControlName="startTime">
+    
+        <mat-error *ngIf="setTime.controls['startTime'].errors && setTime.controls['startTime'].hasError('pattern')">
+
+          Time should be in HH:MM format
+        </mat-error>
+        
+        <mat-error *ngIf="setTime.controls['startTime'].errors &&  setTime.controls['startTime'].hasError('required')">
+
+          End Time is required.
+        </mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>End Time</mat-label>
+
+        <input matInput type="text" class="form-control ml-12 ng-untouched ng-pristine ng-valid"
+          pattern="[0-9]{2}:[0-9]{2}" placeholder="HH:MM" formControlName="endTime">
+        <mat-hint>Hint</mat-hint>
+        <mat-error *ngIf="setTime.controls['endTime'].errors &&  setTime.controls['endTime'].hasError('pattern')">
+
+          Time should be in HH:MM format
+
+        </mat-error>
+
+        <mat-error *ngIf="setTime.controls['endTime'].errors &&  setTime.controls['endTime'].hasError('required')">
+
+          End Time is required.
+
+        </mat-error>
+
+ </mat-form-field>
+          </p>
+       &nbsp;
+       <button (click)="createTime()" class="bg-primary" mat-raised-button color="primary"
+      [disabled]="!setTime.valid">createTime</button>
+  </form>
+</mat-card>

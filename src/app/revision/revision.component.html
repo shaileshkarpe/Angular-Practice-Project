@@ -1,0 +1,31 @@
+<p>revision works!</p>
+
+<h1 >ngIf</h1>
+<div class="bg-primary color" *ngIf="show_msg; then updated_msg else error_msg"> user adder succesfully</div>
+
+<ng-template  #updated_msg>
+user is updeted
+</ng-template>
+
+<ng-template #error_msg>
+
+    user is not added
+</ng-template>
+
+
+<h1>ngfor</h1>
+<ul>
+    <li *ngFor="let user of userData;  index as i ; first as f">
+        {{i}} {{user.firstName}} {{user.lastName}}
+    </li>
+</ul>
+
+<div [ngStyle]="{'background-color':'red'}" [ngSwitch]="switch_expression">
+
+    <div *ngSwitchCase="'hello'">hello<div>
+    <div *ngSwitchCase="'hello2'">2<div>
+    <div *ngSwitchCase="'hello3'">3<div>
+    <div *ngSwitchCase="'hello4'">4<div>
+</div>
+
+
